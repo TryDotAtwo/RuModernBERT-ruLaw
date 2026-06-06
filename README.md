@@ -37,6 +37,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip wheel setuptools
 python -m pip install -e .
+python -m pip install flash-attn --no-build-isolation
 sbatch -p kaf12 scripts/mephi_start.sh
 ```
 
