@@ -8,6 +8,7 @@ def test_default_pipeline_is_fixed_for_legal_mlm():
     assert cfg.model_revision == "patched-tokenizer"
     assert cfg.dataset_name == "irlspbru/RusLawOD"
     assert cfg.dataset_files is None
+    assert cfg.tokenized_dataset_dir is None
     assert cfg.max_train_samples is None
     assert cfg.dataloader_num_workers == 32
     assert cfg.text_column == "textIPS"

@@ -12,6 +12,7 @@ export HF_DATASETS_OFFLINE=1
 export OMP_NUM_THREADS="${OMP_NUM_THREADS:-4}"
 
 DATA_DIR="${DATA_DIR:-/mnt/pool/6/vokirova/rumodernbert-legal-mlm/.cache/huggingface/hub/datasets--irlspbru--RusLawOD/snapshots/f850b966648499d7ff4f4bc3ef2cddb68f4ec3c0}"
+TOKENIZED_DATASET_DIR="${TOKENIZED_DATASET_DIR:-/mnt/pool/6/vokirova/rumodernbert-legal-mlm/outputs/tokenized-ruslawod-8192}"
 DATASET_FILES=()
 for i in $(seq -w 1 11); do
   DATASET_FILES+=("${DATA_DIR}/ruslawod_${i}.parquet")
@@ -27,5 +28,6 @@ deepspeed \
   --learning-rate 5e-5 \
   --save-steps 1000 \
   --dataloader-num-workers "${DATALOADER_NUM_WORKERS:-32}" \
+  --tokenized-dataset-dir "${TOKENIZED_DATASET_DIR}" \
   --dataset-files "${DATASET_FILES[@]}" \
   "$@"

@@ -3,7 +3,7 @@ import inspect
 from dataclasses import asdict
 
 import torch
-from datasets import load_dataset
+from datasets import load_dataset, load_from_disk
 from transformers import (
     AutoModelForMaskedLM,
     AutoTokenizer,
@@ -43,6 +43,7 @@ def parse_args() -> TrainingConfig:
     parser.add_argument("--save-steps", type=int, default=TrainingConfig.save_steps)
     parser.add_argument("--dataloader-num-workers", type=int, default=TrainingConfig.dataloader_num_workers)
     parser.add_argument("--dataset-files", nargs="+", default=None)
+    parser.add_argument("--tokenized-dataset-dir", default=TrainingConfig.tokenized_dataset_dir)
     parser.add_argument("--local_rank", "--local-rank", type=int, default=-1)
     args = parser.parse_args()
 
@@ -57,6 +58,7 @@ def parse_args() -> TrainingConfig:
         save_steps=args.save_steps,
         dataloader_num_workers=args.dataloader_num_workers,
         dataset_files=args.dataset_files,
+        tokenized_dataset_dir=args.tokenized_dataset_dir,
     )
     cfg.validate()
     return cfg
@@ -115,13 +117,16 @@ def main() -> None:
     if cfg.gradient_checkpointing:
         model.gradient_checkpointing_enable()
 
-    if cfg.dataset_files:
-        raw = load_dataset("parquet", data_files=cfg.dataset_files, split=cfg.train_split)
+    if cfg.tokenized_dataset_dir:
+        tokenized = load_from_disk(cfg.tokenized_dataset_dir)
     else:
-        raw = load_dataset(cfg.dataset_name, cfg.dataset_config, split=cfg.train_split)
-    if cfg.max_train_samples is not None:
-        raw = raw.select(range(min(cfg.max_train_samples, len(raw))))
-    tokenized = tokenize_dataset(raw, tokenizer, cfg)
+        if cfg.dataset_files:
+            raw = load_dataset("parquet", data_files=cfg.dataset_files, split=cfg.train_split)
+        else:
+            raw = load_dataset(cfg.dataset_name, cfg.dataset_config, split=cfg.train_split)
+        if cfg.max_train_samples is not None:
+            raw = raw.select(range(min(cfg.max_train_samples, len(raw))))
+        tokenized = tokenize_dataset(raw, tokenizer, cfg)
 
     collator = DataCollatorForLanguageModeling(
         tokenizer=tokenizer,

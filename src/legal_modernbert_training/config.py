@@ -8,6 +8,7 @@ class TrainingConfig:
     dataset_name: str = "irlspbru/RusLawOD"
     dataset_config: str | None = None
     dataset_files: list[str] | None = None
+    tokenized_dataset_dir: str | None = None
     train_split: str = "train"
     validation_split: str | None = None
     text_column: str = "textIPS"
