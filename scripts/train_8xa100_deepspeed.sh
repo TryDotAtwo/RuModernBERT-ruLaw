@@ -25,4 +25,5 @@ deepspeed \
   --gradient-accumulation-steps 8 \
   --learning-rate 5e-5 \
   --save-steps 1000 \
-  --dataset-files "${DATASET_FILES[@]}"
+  --dataset-files "${DATASET_FILES[@]}" \
+  "$@"
