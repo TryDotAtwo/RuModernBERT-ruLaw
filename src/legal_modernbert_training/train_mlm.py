@@ -24,6 +24,7 @@ def parse_args() -> TrainingConfig:
     parser.add_argument("--per-device-train-batch-size", type=int, default=TrainingConfig.per_device_train_batch_size)
     parser.add_argument("--max-steps", type=int, default=TrainingConfig.max_steps)
     parser.add_argument("--save-steps", type=int, default=TrainingConfig.save_steps)
+    parser.add_argument("--local_rank", "--local-rank", type=int, default=-1)
     args = parser.parse_args()
 
     cfg = TrainingConfig(
