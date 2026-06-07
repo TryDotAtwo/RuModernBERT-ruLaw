@@ -39,7 +39,9 @@ def parse_args() -> TrainingConfig:
     parser.add_argument("--gradient-accumulation-steps", type=int, default=TrainingConfig.gradient_accumulation_steps)
     parser.add_argument("--per-device-train-batch-size", type=int, default=TrainingConfig.per_device_train_batch_size)
     parser.add_argument("--max-steps", type=int, default=TrainingConfig.max_steps)
+    parser.add_argument("--max-train-samples", type=int, default=TrainingConfig.max_train_samples)
     parser.add_argument("--save-steps", type=int, default=TrainingConfig.save_steps)
+    parser.add_argument("--dataloader-num-workers", type=int, default=TrainingConfig.dataloader_num_workers)
     parser.add_argument("--dataset-files", nargs="+", default=None)
     parser.add_argument("--local_rank", "--local-rank", type=int, default=-1)
     args = parser.parse_args()
@@ -51,7 +53,9 @@ def parse_args() -> TrainingConfig:
         gradient_accumulation_steps=args.gradient_accumulation_steps,
         per_device_train_batch_size=args.per_device_train_batch_size,
         max_steps=args.max_steps,
+        max_train_samples=args.max_train_samples,
         save_steps=args.save_steps,
+        dataloader_num_workers=args.dataloader_num_workers,
         dataset_files=args.dataset_files,
     )
     cfg.validate()
@@ -115,6 +119,8 @@ def main() -> None:
         raw = load_dataset("parquet", data_files=cfg.dataset_files, split=cfg.train_split)
     else:
         raw = load_dataset(cfg.dataset_name, cfg.dataset_config, split=cfg.train_split)
+    if cfg.max_train_samples is not None:
+        raw = raw.select(range(min(cfg.max_train_samples, len(raw))))
     tokenized = tokenize_dataset(raw, tokenizer, cfg)
 
     collator = DataCollatorForLanguageModeling(

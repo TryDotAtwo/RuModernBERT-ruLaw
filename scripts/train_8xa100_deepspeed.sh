@@ -9,6 +9,7 @@ export HF_HOME="${HF_HOME:-/mnt/pool/6/vokirova/rumodernbert-legal-mlm/.cache/hu
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
+export OMP_NUM_THREADS="${OMP_NUM_THREADS:-4}"
 
 DATA_DIR="${DATA_DIR:-/mnt/pool/6/vokirova/rumodernbert-legal-mlm/.cache/huggingface/hub/datasets--irlspbru--RusLawOD/snapshots/f850b966648499d7ff4f4bc3ef2cddb68f4ec3c0}"
 DATASET_FILES=()
@@ -25,5 +26,6 @@ deepspeed \
   --gradient-accumulation-steps 8 \
   --learning-rate 5e-5 \
   --save-steps 1000 \
+  --dataloader-num-workers "${DATALOADER_NUM_WORKERS:-32}" \
   --dataset-files "${DATASET_FILES[@]}" \
   "$@"

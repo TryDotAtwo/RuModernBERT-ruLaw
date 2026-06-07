@@ -24,13 +24,14 @@ class TrainingConfig:
     weight_decay: float = 0.01
     num_train_epochs: float = 1.0
     max_steps: int = -1
+    max_train_samples: int | None = None
     save_steps: int = 1000
     logging_steps: int = 10
     seed: int = 42
     attn_implementation: str = "flash_attention_2"
     torch_dtype: str = "bfloat16"
     gradient_checkpointing: bool = True
-    dataloader_num_workers: int = 8
+    dataloader_num_workers: int = 32
     report_to: str = "tensorboard"
     deepspeed_config: str = "configs/deepspeed_zero2_a100.json"
 
