@@ -22,6 +22,7 @@ def parse_args() -> TrainingConfig:
     parser.add_argument("--learning-rate", type=float, default=TrainingConfig.learning_rate)
     parser.add_argument("--gradient-accumulation-steps", type=int, default=TrainingConfig.gradient_accumulation_steps)
     parser.add_argument("--per-device-train-batch-size", type=int, default=TrainingConfig.per_device_train_batch_size)
+    parser.add_argument("--max-steps", type=int, default=TrainingConfig.max_steps)
     parser.add_argument("--save-steps", type=int, default=TrainingConfig.save_steps)
     args = parser.parse_args()
 
@@ -31,6 +32,7 @@ def parse_args() -> TrainingConfig:
         learning_rate=args.learning_rate,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
         per_device_train_batch_size=args.per_device_train_batch_size,
+        max_steps=args.max_steps,
         save_steps=args.save_steps,
     )
     cfg.validate()
@@ -108,6 +110,7 @@ def main() -> None:
         warmup_ratio=cfg.warmup_ratio,
         weight_decay=cfg.weight_decay,
         num_train_epochs=cfg.num_train_epochs,
+        max_steps=cfg.max_steps,
         bf16=True,
         fp16=False,
         gradient_checkpointing=cfg.gradient_checkpointing,

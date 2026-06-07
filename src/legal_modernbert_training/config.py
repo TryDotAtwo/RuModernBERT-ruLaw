@@ -22,6 +22,7 @@ class TrainingConfig:
     warmup_ratio: float = 0.03
     weight_decay: float = 0.01
     num_train_epochs: float = 1.0
+    max_steps: int = -1
     save_steps: int = 1000
     logging_steps: int = 10
     seed: int = 42
