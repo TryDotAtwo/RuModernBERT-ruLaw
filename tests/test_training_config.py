@@ -7,6 +7,7 @@ def test_default_pipeline_is_fixed_for_legal_mlm():
     assert cfg.model_name == "deepvk/RuModernBERT-base"
     assert cfg.model_revision == "patched-tokenizer"
     assert cfg.dataset_name == "irlspbru/RusLawOD"
+    assert cfg.dataset_files is None
     assert cfg.text_column == "textIPS"
     assert cfg.max_seq_length == 8192
     assert cfg.attn_implementation == "flash_attention_2"
