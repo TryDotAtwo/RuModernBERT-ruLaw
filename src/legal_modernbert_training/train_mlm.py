@@ -1,5 +1,4 @@
 import argparse
-import inspect
 from dataclasses import asdict
 
 import torch
@@ -14,21 +13,6 @@ from transformers import (
 
 from .config import TrainingConfig
 from .text_pipeline import build_mlm_text, chunk_token_ids, is_usable_text
-
-
-def patch_flash_attn_rotary_compat() -> None:
-    from flash_attn.layers.rotary import RotaryEmbedding
-
-    signature = inspect.signature(RotaryEmbedding.__init__)
-    if "pos_idx_in_fp32" in signature.parameters:
-        return
-
-    original_init = RotaryEmbedding.__init__
-
-    def init_without_pos_idx(self, *args, pos_idx_in_fp32=None, **kwargs):
-        return original_init(self, *args, **kwargs)
-
-    RotaryEmbedding.__init__ = init_without_pos_idx
 
 
 def parse_args() -> TrainingConfig:
@@ -102,9 +86,6 @@ def _rows(batch: dict):
 
 def main() -> None:
     cfg = parse_args()
-
-    if cfg.attn_implementation == "flash_attention_2":
-        patch_flash_attn_rotary_compat()
 
     tokenizer = AutoTokenizer.from_pretrained(cfg.model_name, revision=cfg.model_revision, use_fast=True)
     model = AutoModelForMaskedLM.from_pretrained(
