@@ -28,6 +28,7 @@ def parse_args() -> TrainingConfig:
     parser.add_argument("--max-train-samples", type=int, default=TrainingConfig.max_train_samples)
     parser.add_argument("--save-steps", type=int, default=TrainingConfig.save_steps)
     parser.add_argument("--eval-steps", type=int, default=TrainingConfig.eval_steps)
+    parser.add_argument("--logging-steps", type=int, default=TrainingConfig.logging_steps)
     parser.add_argument("--validation-ratio", type=float, default=TrainingConfig.validation_ratio)
     parser.add_argument("--early-stopping-patience", type=int, default=TrainingConfig.early_stopping_patience)
     parser.add_argument("--dataloader-num-workers", type=int, default=TrainingConfig.dataloader_num_workers)
@@ -47,6 +48,7 @@ def parse_args() -> TrainingConfig:
         max_train_samples=args.max_train_samples,
         save_steps=args.save_steps,
         eval_steps=args.eval_steps,
+        logging_steps=args.logging_steps,
         validation_ratio=args.validation_ratio,
         early_stopping_patience=args.early_stopping_patience,
         dataloader_num_workers=args.dataloader_num_workers,
