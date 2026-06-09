@@ -7,6 +7,7 @@ from transformers import (
     AutoModelForMaskedLM,
     AutoTokenizer,
     DataCollatorForLanguageModeling,
+    EarlyStoppingCallback,
     Trainer,
     TrainingArguments,
 )
@@ -22,9 +23,13 @@ def parse_args() -> TrainingConfig:
     parser.add_argument("--learning-rate", type=float, default=TrainingConfig.learning_rate)
     parser.add_argument("--gradient-accumulation-steps", type=int, default=TrainingConfig.gradient_accumulation_steps)
     parser.add_argument("--per-device-train-batch-size", type=int, default=TrainingConfig.per_device_train_batch_size)
+    parser.add_argument("--per-device-eval-batch-size", type=int, default=TrainingConfig.per_device_eval_batch_size)
     parser.add_argument("--max-steps", type=int, default=TrainingConfig.max_steps)
     parser.add_argument("--max-train-samples", type=int, default=TrainingConfig.max_train_samples)
     parser.add_argument("--save-steps", type=int, default=TrainingConfig.save_steps)
+    parser.add_argument("--eval-steps", type=int, default=TrainingConfig.eval_steps)
+    parser.add_argument("--validation-ratio", type=float, default=TrainingConfig.validation_ratio)
+    parser.add_argument("--early-stopping-patience", type=int, default=TrainingConfig.early_stopping_patience)
     parser.add_argument("--dataloader-num-workers", type=int, default=TrainingConfig.dataloader_num_workers)
     parser.add_argument("--dataset-files", nargs="+", default=None)
     parser.add_argument("--tokenized-dataset-dir", default=TrainingConfig.tokenized_dataset_dir)
@@ -37,9 +42,13 @@ def parse_args() -> TrainingConfig:
         learning_rate=args.learning_rate,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
         per_device_train_batch_size=args.per_device_train_batch_size,
+        per_device_eval_batch_size=args.per_device_eval_batch_size,
         max_steps=args.max_steps,
         max_train_samples=args.max_train_samples,
         save_steps=args.save_steps,
+        eval_steps=args.eval_steps,
+        validation_ratio=args.validation_ratio,
+        early_stopping_patience=args.early_stopping_patience,
         dataloader_num_workers=args.dataloader_num_workers,
         dataset_files=args.dataset_files,
         tokenized_dataset_dir=args.tokenized_dataset_dir,
@@ -109,6 +118,10 @@ def main() -> None:
             raw = raw.select(range(min(cfg.max_train_samples, len(raw))))
         tokenized = tokenize_dataset(raw, tokenizer, cfg)
 
+    split = tokenized.train_test_split(test_size=cfg.validation_ratio, seed=cfg.seed, shuffle=True)
+    train_dataset = split["train"]
+    eval_dataset = split["test"]
+
     collator = DataCollatorForLanguageModeling(
         tokenizer=tokenizer,
         mlm=True,
@@ -120,10 +133,15 @@ def main() -> None:
         output_dir=cfg.output_dir,
         overwrite_output_dir=False,
         do_train=True,
-        do_eval=False,
+        do_eval=True,
+        eval_strategy="steps",
+        eval_steps=cfg.eval_steps,
+        save_strategy="steps",
         per_device_train_batch_size=cfg.per_device_train_batch_size,
+        per_device_eval_batch_size=cfg.per_device_eval_batch_size,
         gradient_accumulation_steps=cfg.gradient_accumulation_steps,
         learning_rate=cfg.learning_rate,
+        lr_scheduler_type="cosine",
         warmup_ratio=cfg.warmup_ratio,
         weight_decay=cfg.weight_decay,
         num_train_epochs=cfg.num_train_epochs,
@@ -133,7 +151,10 @@ def main() -> None:
         gradient_checkpointing=cfg.gradient_checkpointing,
         logging_steps=cfg.logging_steps,
         save_steps=cfg.save_steps,
-        save_total_limit=3,
+        save_total_limit=None,
+        load_best_model_at_end=True,
+        metric_for_best_model="eval_loss",
+        greater_is_better=False,
         dataloader_num_workers=cfg.dataloader_num_workers,
         report_to=cfg.report_to,
         seed=cfg.seed,
@@ -144,9 +165,11 @@ def main() -> None:
     trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=tokenized,
+        train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
         data_collator=collator,
         tokenizer=tokenizer,
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=cfg.early_stopping_patience)],
     )
     trainer.train()
     trainer.save_model(cfg.output_dir)

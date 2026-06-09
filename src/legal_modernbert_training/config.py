@@ -11,6 +11,7 @@ class TrainingConfig:
     tokenized_dataset_dir: str | None = None
     train_split: str = "train"
     validation_split: str | None = None
+    validation_ratio: float = 0.01
     text_column: str = "textIPS"
     output_dir: str = "outputs/RuModernBERT-legal-mlm"
     max_seq_length: int = 8192
@@ -27,6 +28,8 @@ class TrainingConfig:
     max_steps: int = -1
     max_train_samples: int | None = None
     save_steps: int = 1000
+    eval_steps: int = 1000
+    early_stopping_patience: int = 1
     logging_steps: int = 10
     seed: int = 42
     attn_implementation: str = "flash_attention_2"
@@ -45,3 +48,5 @@ class TrainingConfig:
             raise ValueError("This pipeline is fixed to ModernBERT long context: max_seq_length=8192.")
         if self.chunk_overlap <= 0 or self.chunk_overlap >= self.max_seq_length:
             raise ValueError("chunk_overlap must be positive and smaller than max_seq_length.")
+        if self.validation_ratio <= 0 or self.validation_ratio >= 0.5:
+            raise ValueError("validation_ratio must be in (0, 0.5).")
