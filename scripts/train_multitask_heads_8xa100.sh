@@ -21,6 +21,8 @@ export HF_HOME=/mnt/pool/6/vokirova/rumodernbert-legal-mlm/.cache/huggingface
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
+export TORCHDYNAMO_DISABLE=1
+export TORCHINDUCTOR_COMPILE_THREADS=1
 export TRITON_CACHE_DIR=/tmp/triton-heads-$SLURM_JOB_ID
 export TORCHINDUCTOR_CACHE_DIR=/tmp/torchinductor-heads-$SLURM_JOB_ID
 mkdir -p "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
