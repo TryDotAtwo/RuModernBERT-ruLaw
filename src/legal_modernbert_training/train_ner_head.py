@@ -26,8 +26,9 @@ ID_TO_LABEL = {idx: label for label, idx in LABEL_TO_ID.items()}
 def parse_args():
     parser = argparse.ArgumentParser(description="Train a ModernBERT NER/token-classification head.")
     parser.add_argument("--model-name-or-path", default="outputs/RuModernBERT-legal-mlm-20e")
-    parser.add_argument("--train-file", required=True)
-    parser.add_argument("--validation-file", required=True)
+    parser.add_argument("--dataset-name", default="TryDotAtwo/russian-legal-ner")
+    parser.add_argument("--train-file", default=None)
+    parser.add_argument("--validation-file", default=None)
     parser.add_argument("--test-file", default=None)
     parser.add_argument("--output-dir", default="outputs/RuModernBERT-legal-ner")
     parser.add_argument("--max-seq-length", type=int, default=2048)
@@ -68,11 +69,19 @@ def label_for_offset(start: int, end: int, spans: list[tuple[int, int, int]], pr
 
 def main() -> None:
     args = parse_args()
-    data_files = {"train": args.train_file, "validation": args.validation_file}
-    if args.test_file:
-        data_files["test"] = args.test_file
-
-    dataset = load_dataset("csv", data_files=data_files, column_names=["text", "spans"])
+    if args.train_file and args.validation_file:
+        data_files = {"train": args.train_file, "validation": args.validation_file}
+        if args.test_file:
+            data_files["test"] = args.test_file
+        extension = Path(args.train_file).suffix.lstrip(".")
+        if extension == "csv":
+            dataset = load_dataset("csv", data_files=data_files, column_names=["text", "spans"])
+        elif extension == "parquet":
+            dataset = load_dataset("parquet", data_files=data_files)
+        else:
+            raise ValueError(f"Unsupported NER file extension: {extension}")
+    else:
+        dataset = load_dataset(args.dataset_name)
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=True)
 
     def tokenize_and_align(batch):

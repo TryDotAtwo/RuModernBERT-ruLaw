@@ -29,9 +29,9 @@ mkdir -p "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
 
 deepspeed --num_gpus=8 --module legal_modernbert_training.train_ner_head \
   --model-name-or-path outputs/RuModernBERT-legal-mlm-20e \
-  --train-file data/ner/train.csv \
-  --validation-file data/ner/validation.csv \
-  --test-file data/ner/test.csv \
+  --train-file data/ner_hf/data/train.parquet \
+  --validation-file data/ner_hf/data/validation.parquet \
+  --test-file data/ner_hf/data/test.parquet \
   --output-dir outputs/RuModernBERT-legal-ner \
   --max-seq-length 2048 \
   --stride 256 \
