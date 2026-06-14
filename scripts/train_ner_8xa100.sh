@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:8
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=64
 #SBATCH --mem=320G
 #SBATCH --time=24:00:00
 #SBATCH --job-name=legal-ner
@@ -34,15 +34,15 @@ deepspeed --num_gpus=8 --module legal_modernbert_training.train_ner_head \
   --validation-file data/ner_hf/data/validation.parquet \
   --test-file data/ner_hf/data/test.parquet \
   --output-dir outputs/RuModernBERT-legal-ner \
-  --max-seq-length 2048 \
-  --stride 256 \
-  --per-device-train-batch-size 4 \
-  --per-device-eval-batch-size 4 \
+  --max-seq-length 8192 \
+  --stride 1024 \
+  --per-device-train-batch-size 1 \
+  --per-device-eval-batch-size 1 \
   --gradient-accumulation-steps 1 \
   --learning-rate 3e-5 \
   --num-train-epochs 3 \
   --save-steps 5000 \
   --eval-steps 5000 \
   --logging-steps 100 \
-  --dataloader-num-workers 8 \
+  --dataloader-num-workers 32 \
   "$@"
