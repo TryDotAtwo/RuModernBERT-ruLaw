@@ -23,9 +23,10 @@ export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
 export TORCHDYNAMO_DISABLE=1
 export TORCHINDUCTOR_COMPILE_THREADS=1
+export HF_DATASETS_CACHE=/tmp/hf-datasets-ner-$SLURM_JOB_ID
 export TRITON_CACHE_DIR=/tmp/triton-ner-$SLURM_JOB_ID
 export TORCHINDUCTOR_CACHE_DIR=/tmp/torchinductor-ner-$SLURM_JOB_ID
-mkdir -p "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
+mkdir -p "$HF_DATASETS_CACHE" "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
 
 deepspeed --num_gpus=8 --module legal_modernbert_training.train_ner_head \
   --model-name-or-path outputs/RuModernBERT-legal-mlm-20e \
