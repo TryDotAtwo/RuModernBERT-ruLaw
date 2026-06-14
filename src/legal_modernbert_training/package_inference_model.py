@@ -100,22 +100,35 @@ def write_model_card(output_dir: Path, repo_id: str | None) -> None:
 language:
 - ru
 library_name: transformers
+base_model: deepvk/RuModernBERT-base
+datasets:
+- irlspbru/RusLawOD
+- lawful-good-project/sud-resh-benchmark
+- TryDotAtwo/russian-legal-ner
 tags:
 - modernbert
 - legal
 - russian
+- masked-lm
 - token-classification
 - text-classification
 ---
 
 # {title}
 
-One-encoder Russian legal ModernBERT package with four heads:
+Russian legal ModernBERT package: one shared encoder and four inference heads.
 
-- document type classification
-- legal classifier multi-label prediction
-- keywords multi-label prediction
-- NER token classification
+## Model
+
+- Base encoder: [`deepvk/RuModernBERT-base`](https://huggingface.co/deepvk/RuModernBERT-base).
+- Continued pretraining: MLM on [`irlspbru/RusLawOD`](https://huggingface.co/datasets/irlspbru/RusLawOD).
+- Inference heads:
+  - `doc_type`: document type classification from `doc_typeIPS`.
+  - `classifier`: multi-label legal classifier from `classifierByIPS`.
+  - `keywords`: multi-label keyword prediction from `keywordsByIPS`.
+  - `ner`: token classification from [`TryDotAtwo/russian-legal-ner`](https://huggingface.co/datasets/TryDotAtwo/russian-legal-ner).
+
+`headingIPS` and `textIPS` are used together as model input for document-level heads.
 
 ## Usage
 
@@ -126,11 +139,37 @@ pipe = LegalDocumentPipeline.from_pretrained("{repo_id or 'PATH_TO_MODEL'}")
 result = pipe("Текст правового документа...")
 ```
 
-## Training Sources
+The pipeline requires a FlashAttention 2 compatible runtime.
 
-- Base encoder: continued MLM from `deepvk/RuModernBERT-base`.
-- Metadata heads: `irlspbru/RusLawOD`.
-- NER head: `TryDotAtwo/russian-legal-ner`, mirrored with attribution to the original dataset authors.
+## Data Sources
+
+| Source | Used for | Link |
+| --- | --- | --- |
+| RuModernBERT-base | Initial encoder weights | [`deepvk/RuModernBERT-base`](https://huggingface.co/deepvk/RuModernBERT-base) |
+| RusLawOD | MLM, document type, classifier, keywords | [`irlspbru/RusLawOD`](https://huggingface.co/datasets/irlspbru/RusLawOD) |
+| Russian legal NER | NER head | [`TryDotAtwo/russian-legal-ner`](https://huggingface.co/datasets/TryDotAtwo/russian-legal-ner) |
+| Sud-resh benchmark | External MLM validation | [`lawful-good-project/sud-resh-benchmark`](https://huggingface.co/datasets/lawful-good-project/sud-resh-benchmark) |
+
+## Benchmarks
+
+| Evaluation | Metric | Result |
+| --- | ---: | ---: |
+| RusLawOD MLM validation | eval loss | 0.1337 |
+| RusLawOD MLM validation | train loss | 0.1537 |
+| Sud-resh MLM benchmark, this model | eval loss | 0.4473 |
+| Sud-resh MLM benchmark, base `deepvk/RuModernBERT-base` | eval loss | 0.5172 |
+| Sud-resh MLM benchmark | perplexity improvement vs base | ~6.8% |
+| NER test | precision | 0.9970 |
+| NER test | recall | 0.9884 |
+| NER test | F1 | 0.9927 |
+| NER test | loss | 0.00133 |
+| Multitask document heads | final train loss | 0.0193 |
+
+The NER dataset mirror keeps attribution to the original authors and source folder in its dataset card.
+
+## Limitations
+
+The benchmark table reports internal training/evaluation runs. Document-head quality should be validated on held-out downstream legal tasks before production use.
 """
     (output_dir / "README.md").write_text(readme, encoding="utf-8")
 
