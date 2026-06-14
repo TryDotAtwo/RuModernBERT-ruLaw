@@ -44,5 +44,6 @@ deepspeed --num_gpus=8 --module legal_modernbert_training.train_ner_head \
   --save-steps 5000 \
   --eval-steps 5000 \
   --logging-steps 100 \
-  --dataloader-num-workers 32 \
+  --preprocessing-num-workers 32 \
+  --dataloader-num-workers 0 \
   "$@"

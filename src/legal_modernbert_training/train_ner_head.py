@@ -43,7 +43,8 @@ def parse_args():
     parser.add_argument("--save-steps", type=int, default=5000)
     parser.add_argument("--eval-steps", type=int, default=5000)
     parser.add_argument("--logging-steps", type=int, default=100)
-    parser.add_argument("--dataloader-num-workers", type=int, default=8)
+    parser.add_argument("--preprocessing-num-workers", type=int, default=8)
+    parser.add_argument("--dataloader-num-workers", type=int, default=0)
     parser.add_argument("--seed", type=int, default=TrainingConfig.seed)
     parser.add_argument("--local_rank", "--local-rank", type=int, default=-1)
     return parser.parse_args()
@@ -111,7 +112,7 @@ def main() -> None:
         tokenize_and_align,
         batched=True,
         remove_columns=["text", "spans"],
-        num_proc=max(1, args.dataloader_num_workers),
+        num_proc=max(1, args.preprocessing_num_workers),
         desc="Tokenizing NER data",
     )
 
