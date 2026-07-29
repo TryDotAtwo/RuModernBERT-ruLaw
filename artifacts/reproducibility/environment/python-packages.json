@@ -1,0 +1,13 @@
+[2026-07-29 22:14:59,466] [WARNING] [real_accelerator.py:183:get_accelerator] Setting accelerator to CPU. If you have GPU or other accelerator, we were unable to detect it.
+{
+  "packages": {
+    "accelerate": "1.13.0",
+    "datasets": "5.0.0",
+    "deepspeed": "0.19.1",
+    "safetensors": "0.7.0",
+    "seqeval": "unknown",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.3"
+  },
+  "python": "3.11.15"
+}

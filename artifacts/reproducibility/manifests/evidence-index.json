@@ -1,0 +1,1285 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-10000/config.json",
+      "bytes": 2542
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-10000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-10000/tokenizer.json",
+      "bytes": 4753266
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-10000/tokenizer_config.json",
+      "bytes": 20990
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-10000/trainer_state.json",
+      "bytes": 19138
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-15000/config.json",
+      "bytes": 2542
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-15000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-15000/tokenizer.json",
+      "bytes": 4753266
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-15000/tokenizer_config.json",
+      "bytes": 20990
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-15000/trainer_state.json",
+      "bytes": 28373
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-20000/config.json",
+      "bytes": 2542
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-20000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-20000/tokenizer.json",
+      "bytes": 4753266
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-20000/tokenizer_config.json",
+      "bytes": 20990
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-20000/trainer_state.json",
+      "bytes": 37465
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-24615/config.json",
+      "bytes": 2542
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-24615/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-24615/tokenizer.json",
+      "bytes": 4753266
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-24615/tokenizer_config.json",
+      "bytes": 20990
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-24615/trainer_state.json",
+      "bytes": 45519
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-5000/config.json",
+      "bytes": 2542
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-5000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-5000/tokenizer.json",
+      "bytes": 4753266
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-5000/tokenizer_config.json",
+      "bytes": 20990
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/checkpoint-5000/trainer_state.json",
+      "bytes": 9965
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/config.json",
+      "bytes": 2542
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/ner_label_map.json",
+      "bytes": 519
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/test_metrics.json",
+      "bytes": 263
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/tokenizer.json",
+      "bytes": 4753266
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-base-ner-deduplicated/tokenizer_config.json",
+      "bytes": 20990
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-inference/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-inference/legal_heads_config.json",
+      "bytes": 159328
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-inference/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-inference/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-inference/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/checkpoint-2/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/checkpoint-2/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/checkpoint-2/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/checkpoint-2/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/checkpoint-2/trainer_state.json",
+      "bytes": 781
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-1000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-1000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-1000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-1000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-1000/trainer_state.json",
+      "bytes": 3042
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-10000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-10000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-10000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-10000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-10000/trainer_state.json",
+      "bytes": 18761
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-100000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-100000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-100000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-100000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-100000/trainer_state.json",
+      "bytes": 177926
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-110000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-110000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-110000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-110000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-110000/trainer_state.json",
+      "bytes": 195700
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-120000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-120000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-120000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-120000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-120000/trainer_state.json",
+      "bytes": 213450
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-130000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-130000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-130000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-130000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-130000/trainer_state.json",
+      "bytes": 231227
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-140000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-140000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-140000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-140000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-140000/trainer_state.json",
+      "bytes": 249101
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-150000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-150000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-150000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-150000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-150000/trainer_state.json",
+      "bytes": 267006
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-160000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-160000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-160000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-160000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-160000/trainer_state.json",
+      "bytes": 284890
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-170000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-170000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-170000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-170000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-170000/trainer_state.json",
+      "bytes": 302808
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-180000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-180000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-180000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-180000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-180000/trainer_state.json",
+      "bytes": 320702
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-190000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-190000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-190000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-190000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-190000/trainer_state.json",
+      "bytes": 338620
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-20000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-20000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-20000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-20000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-20000/trainer_state.json",
+      "bytes": 36464
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-200000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-200000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-200000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-200000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-200000/trainer_state.json",
+      "bytes": 356477
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-210000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-210000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-210000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-210000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-210000/trainer_state.json",
+      "bytes": 374307
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-30000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-30000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-30000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-30000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-30000/trainer_state.json",
+      "bytes": 54174
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-40000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-40000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-40000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-40000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-40000/trainer_state.json",
+      "bytes": 71866
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-50000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-50000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-50000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-50000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-50000/trainer_state.json",
+      "bytes": 89558
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-60000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-60000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-60000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-60000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-60000/trainer_state.json",
+      "bytes": 107206
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-70000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-70000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-70000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-70000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-70000/trainer_state.json",
+      "bytes": 124876
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-80000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-80000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-80000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-80000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-80000/trainer_state.json",
+      "bytes": 142555
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-90000/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-90000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-90000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-90000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/checkpoint-90000/trainer_state.json",
+      "bytes": 160233
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-mlm-20e/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-10000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-10000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-10000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-10000/trainer_state.json",
+      "bytes": 18848
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-15000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-15000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-15000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-15000/trainer_state.json",
+      "bytes": 27887
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-20000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-20000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-20000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-20000/trainer_state.json",
+      "bytes": 36938
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-22665/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-22665/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-22665/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-22665/trainer_state.json",
+      "bytes": 41514
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-5000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-5000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-5000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/checkpoint-5000/trainer_state.json",
+      "bytes": 9828
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/label_maps.json",
+      "bytes": 149708
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-multitask-heads/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-10000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-10000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-10000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-10000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-10000/trainer_state.json",
+      "bytes": 19154
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-15000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-15000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-15000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-15000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-15000/trainer_state.json",
+      "bytes": 28345
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-20000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-20000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-20000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-20000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-20000/trainer_state.json",
+      "bytes": 37454
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-25000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-25000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-25000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-25000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-25000/trainer_state.json",
+      "bytes": 46560
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-27726/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-27726/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-27726/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-27726/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-27726/trainer_state.json",
+      "bytes": 51273
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-5000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-5000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-5000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-5000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/checkpoint-5000/trainer_state.json",
+      "bytes": 9955
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/ner_label_map.json",
+      "bytes": 519
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/test_metrics.json",
+      "bytes": 265
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-10000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-10000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-10000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-10000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-10000/trainer_state.json",
+      "bytes": 19132
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-15000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-15000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-15000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-15000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-15000/trainer_state.json",
+      "bytes": 28355
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-20000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-20000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-20000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-20000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-20000/trainer_state.json",
+      "bytes": 37449
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-24615/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-24615/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-24615/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-24615/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-24615/trainer_state.json",
+      "bytes": 45507
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-5000/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-5000/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-5000/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-5000/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/checkpoint-5000/trainer_state.json",
+      "bytes": 9957
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/config.json",
+      "bytes": 2540
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/ner_label_map.json",
+      "bytes": 519
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/test_metrics.json",
+      "bytes": 265
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/RuModernBERT-legal-ner-deduplicated/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/base-101.json",
+      "bytes": 21214
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/base-11.json",
+      "bytes": 14107
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/base-23.json",
+      "bytes": 21826
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/base-42.json",
+      "bytes": 19542
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/base-67.json",
+      "bytes": 13914
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/our-101.json",
+      "bytes": 14098
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/our-11.json",
+      "bytes": 13845
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/our-23.json",
+      "bytes": 13913
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/our-42.json",
+      "bytes": 14170
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/our-67.json",
+      "bytes": 14289
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm/summary.json",
+      "bytes": 3593
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L2048-S101.json",
+      "bytes": 18576
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L2048-S11.json",
+      "bytes": 13944
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L2048-S23.json",
+      "bytes": 16022
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L2048-S42.json",
+      "bytes": 18631
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L2048-S67.json",
+      "bytes": 13353
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L512-S101.json",
+      "bytes": 18742
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L512-S11.json",
+      "bytes": 15319
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L512-S23.json",
+      "bytes": 12964
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L512-S42.json",
+      "bytes": 11370
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L512-S67.json",
+      "bytes": 11475
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L8192-S101.json",
+      "bytes": 13967
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L8192-S11.json",
+      "bytes": 14389
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L8192-S23.json",
+      "bytes": 21606
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L8192-S42.json",
+      "bytes": 21827
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/base-L8192-S67.json",
+      "bytes": 13826
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L2048-S101.json",
+      "bytes": 13366
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L2048-S11.json",
+      "bytes": 21818
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L2048-S23.json",
+      "bytes": 13354
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L2048-S42.json",
+      "bytes": 19874
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L2048-S67.json",
+      "bytes": 17793
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L512-S101.json",
+      "bytes": 13237
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L512-S11.json",
+      "bytes": 12843
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L512-S23.json",
+      "bytes": 15026
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L512-S42.json",
+      "bytes": 20741
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L512-S67.json",
+      "bytes": 12244
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L8192-S101.json",
+      "bytes": 14226
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L8192-S11.json",
+      "bytes": 20136
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L8192-S23.json",
+      "bytes": 21366
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L8192-S42.json",
+      "bytes": 13915
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/law-L8192-S67.json",
+      "bytes": 14301
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/evidence/mlm-context/summary.json",
+      "bytes": 12214
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/checkpoint-20/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/checkpoint-20/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/checkpoint-20/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/checkpoint-20/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/checkpoint-20/trainer_state.json",
+      "bytes": 1358
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-4/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/checkpoint-20/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/checkpoint-20/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/checkpoint-20/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/checkpoint-20/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/checkpoint-20/trainer_state.json",
+      "bytes": 1359
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/config.json",
+      "bytes": 2153
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/special_tokens_map.json",
+      "bytes": 837
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/tokenizer.json",
+      "bytes": 4752657
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/sweep-bs-8/tokenizer_config.json",
+      "bytes": 19940
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-ruslawod-8192/dataset_info.json",
+      "bytes": 988
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-ruslawod-8192/state.json",
+      "bytes": 955
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-8192/dataset_info.json",
+      "bytes": 1018
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-8192/state.json",
+      "bytes": 250
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-prefix-2048/dataset_info.json",
+      "bytes": 1018
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-prefix-2048/state.json",
+      "bytes": 250
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-prefix-512/dataset_info.json",
+      "bytes": 1018
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-prefix-512/state.json",
+      "bytes": 250
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-prefix-8192/dataset_info.json",
+      "bytes": 1018
+    },
+    {
+      "path": "artifacts/reproducibility/metrics/outputs/tokenized-sud-resh-prefix-8192/state.json",
+      "bytes": 250
+    }
+  ]
+}

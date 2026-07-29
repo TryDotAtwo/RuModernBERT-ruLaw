@@ -19,15 +19,17 @@ export TORCHINDUCTOR_CACHE_DIR=/tmp/torchinductor-$SLURM_JOB_ID
 mkdir -p "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
 
 export DATALOADER_NUM_WORKERS=1
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 bash scripts/train_8xa100_deepspeed.sh \
   --output-dir outputs/RuModernBERT-legal-mlm-20e \
   --num-train-epochs 20 \
-  --per-device-train-batch-size 2 \
-  --per-device-eval-batch-size 2 \
+  --per-device-train-batch-size 4 \
+  --per-device-eval-batch-size 4 \
   --gradient-accumulation-steps 1 \
-  --learning-rate 5e-5 \
-  --save-steps 1000 \
-  --eval-steps 1000 \
+  --learning-rate 7e-5 \
+  --save-steps 10000 \
+  --eval-steps 10000 \
   --validation-ratio 0.01 \
+  --logging-steps 100 \
   --early-stopping-patience 1
