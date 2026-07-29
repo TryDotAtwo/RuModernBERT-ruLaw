@@ -5,3 +5,6 @@ __pycache__/
 outputs/
 runs/
 wandb/
+manuscript/
+paper/main.tex
+paper/main.pdf
