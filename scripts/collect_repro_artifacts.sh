@@ -57,7 +57,7 @@ for jid in 33146 33149 33152 33153; do
 done
 
 # Compress complete SLURM stdout/stderr logs. gzip keeps even large progress-bar logs manageable.
-for log in slurm-*.out; do
+for log in ./*.out; do
   [[ -f "$log" ]] || continue
   gzip -9 -c "$log" > "$ART/logs/$log.gz"
 done
