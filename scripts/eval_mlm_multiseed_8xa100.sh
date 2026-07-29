@@ -20,7 +20,7 @@ mkdir -p outputs/evidence/mlm
 
 seeds=(11 23 42 67 101)
 models=(base our)
-paths=(.cache/huggingface/hub/models--deepvk--RuModernBERT-base/snapshots/patched-tokenizer outputs/RuModernBERT-legal-mlm-20e)
+paths=(deepvk/RuModernBERT-base outputs/RuModernBERT-legal-mlm-20e)
 
 pids=()
 gpu=0
