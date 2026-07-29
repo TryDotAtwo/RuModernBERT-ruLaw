@@ -13,10 +13,14 @@ conda activate /mnt/pool/3/vokirova/venvs/rumodernbert-pip
 cd /mnt/pool/6/vokirova/rumodernbert-legal-mlm
 
 export TOKENIZERS_PARALLELISM=false
+export XDG_CACHE_HOME=/mnt/pool/6/vokirova/rumodernbert-legal-mlm/.cache
+export HF_HOME="$XDG_CACHE_HOME/huggingface"
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
-mkdir -p outputs/evidence/mlm
+export TRITON_CACHE_DIR=/tmp/triton-mlm-$SLURM_JOB_ID
+export TORCHINDUCTOR_CACHE_DIR=/tmp/torchinductor-mlm-$SLURM_JOB_ID
+mkdir -p outputs/evidence/mlm "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
 
 seeds=(11 23 42 67 101)
 models=(base our)
