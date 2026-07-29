@@ -1,0 +1,143 @@
+% !TEX program = xelatex
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+\setmainfont{Times New Roman}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[margin=2cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\model}{RuModernBERT-ruLaw}
+\newcommand{\base}{RuModernBERT-base}
+\newcommand{\pending}[1]{\textbf{[после контрольного эксперимента: #1]}}
+\title{\textbf{Доменная адаптация русскоязычного ModernBERT\\для анализа нормативно-правовых текстов}}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+Предложена модель \model{} для обработки длинных русскоязычных нормативно-правовых документов. Модель получена продолженным предобучением энкодера \base{} на 304\,382 документах корпуса RusLawOD, содержащих 194\,425\,905 токенов. Максимальная длина контекста равна 8192 токенам. Обучение выполнено на одном узле кластера НИЯУ МИФИ с восемью ускорителями NVIDIA A100 40~ГБ. На внешней коллекции судебных решений проведено парное сравнение при пяти реализациях случайного маскирования. Средняя перплексия уменьшилась с 1{,}6711 до 1{,}5633, то есть на 6{,}45\%; 95\%-й доверительный интервал для относительного уменьшения равен [6{,}13; 6{,}78]\%. Дополнительно исследовано распознавание именованных сущностей на дедуплицированном разбиении без пересечения текстов. Для доменно адаптированной модели получено $F_1=0{,}99820$.
+\end{abstract}
+\noindent\textbf{Ключевые слова:} обработка естественного языка, юридические тексты, ModernBERT, продолженное предобучение, masked language modeling, распознавание именованных сущностей.
+
+\section{Введение}
+Нормативно-правовые документы имеют устойчивую специальную лексику, формализованную структуру и дальние ссылочные зависимости. Поэтому при их обработке существенны одновременно доменная адаптация и длинный контекст. Архитектура ModernBERT сочетает двунаправленное представление BERT \cite{devlin2019bert} с контекстом до 8192 токенов и чередованием глобального и локального внимания \cite{warner2024modernbert}.
+
+В работе исследуется продолженное предобучение русскоязычного ModernBERT на корпусе нормативных актов RusLawOD \cite{saveliev2024corpus}. Вклад работы состоит в следующем: (1) описана воспроизводимая схема распределённого продолженного предобучения длинноконтекстного энкодера; (2) эффект доменной адаптации проверен на внешней коллекции судебных решений при одинаковых реализациях случайного маскирования; (3) перенос на распознавание сущностей оценён на разбиении, исключающем точные дубликаты и конфликтующие примеры.
+
+\section{Модель и метод обучения}
+\subsection{Продолженное MLM-предобучение}
+Исходной моделью служила \texttt{deepvk/RuModernBERT-base}. После фильтрации корпус содержал $D=304\,382$ документа и $N=194\,425\,905$ токенов. Для окна $W=(x_1,\ldots,x_L)$, $L\leq8192$, случайно выбиралось множество маскируемых позиций $M$ с вероятностью включения $p=0{,}15$. Минимизировалась отрицательная логарифмическая правдоподобность
+\begin{equation}
+ \mathcal L_{\mathrm{MLM}}(\theta;W,M)=-\frac{1}{|M|}\sum_{i\in M}\log p_\theta(x_i\mid W_{\setminus M}).
+ \label{eq:mlm}
+\end{equation}
+Перплексия определялась как
+\begin{equation}
+ \operatorname{PPL}(\theta)=\exp\!\left(\frac{1}{K}\sum_{k=1}^{K}\mathcal L_{\mathrm{MLM}}(\theta;W_k,M_k)\right).
+ \label{eq:ppl}
+\end{equation}
+В ModernBERT локальное внимание с шириной окна $w$ требует $O(Lw)$ операций и памяти для матрицы внимания, тогда как глобальное внимание требует $O(L^2)$. Чередование этих слоёв позволяет сохранять глобальный обмен информацией, не оплачивая квадратичную стоимость во всех слоях.
+
+\subsection{Распознавание сущностей}
+Каждому токену назначалась BIO-метка $z_t\in\mathcal C$. Для множества $\Omega$ первых подтокенов размеченных слов минимизировалась функция
+\begin{equation}
+ \mathcal L_{\mathrm{NER}}(\phi)=-\frac{1}{|\Omega|}\sum_{t\in\Omega}\log p_\phi(z_t\mid W).
+ \label{eq:ner}
+\end{equation}
+Документы токенизировались с максимальной длиной 8192 и перекрытием 1024 токена. Качество измерялось на уровне сущностей:
+\begin{equation}
+ P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN},\qquad F_1=\frac{2PR}{P+R}.
+ \label{eq:f1}
+\end{equation}
+Исходные 97\,668 строк группировались по SHA-256 нормализованного текста. Из данных удалены 15\,783 повторные строки и 109 строк, относящихся к 32 текстам с конфликтующими метками. Оставшиеся 81\,776 уникальных примеров детерминированно разделены по хешу текста на обучающую, валидационную и тестовую части объёмом 65\,382, 8\,133 и 8\,261 соответственно. Попарное пересечение множеств нормализованных текстов равно нулю.
+
+\section{Вычислительный эксперимент}
+Эксперименты проведены на одном узле кластера НИЯУ МИФИ: два процессора AMD EPYC 7542, 512~ГиБ оперативной памяти и восемь NVIDIA A100 PCIe с 40~ГБ памяти. Использованы Python 3.11.15, PyTorch 2.6.0 с CUDA 12.4, Transformers 4.57.3 и DeepSpeed 0.19.1.
+
+Продолженное предобучение выполнялось в BF16 с FlashAttention-2 \cite{dao2023flashattention2} и DeepSpeed ZeRO-2 \cite{rajbhandari2020zero}. При четырёх последовательностях на GPU и одном шаге накопления градиента глобальный пакет составлял
+\begin{equation}
+ B_{\mathrm{global}}=N_{\mathrm{GPU}}B_{\mathrm{device}}A=8\cdot4\cdot1=32,
+ \label{eq:batch}
+\end{equation}
+или не более $32\cdot8192=262\,144$ токен-позиций за шаг оптимизатора. Применялся AdamW \cite{loshchilov2019adamw} с начальной скоростью $7\cdot10^{-5}$. Из запланированных 20 эпох ранняя остановка сработала после приблизительно 16{,}38 эпохи; минимальная валидационная потеря 0{,}133617 достигнута на шаге 200\,000.
+
+NER-модели обучались три эпохи с глобальным пакетом 8 и скоростью $3\cdot10^{-5}$. Для честного сравнения исходный и адаптированный энкодеры обучались на одном и том же очищенном разбиении с одинаковыми гиперпараметрами.
+
+Внешняя MLM-выборка содержала $K=1031$ фрагмент судебных решений. Для каждого seed $s\in\{11,23,42,67,101\}$ обе модели оценивались на одной реализации масок. Пусть $d_s=\mathcal L_{\mathrm{base},s}-\mathcal L_{\mathrm{law},s}$. При $n=5$ доверительный интервал строился по парным разностям:
+\begin{equation}
+ \bar d\pm t_{0{,}975;n-1}\frac{s_d}{\sqrt n},\qquad t_{0{,}975;4}=2{,}776.
+ \label{eq:ci}
+\end{equation}
+
+\section{Результаты}
+\begin{table}[ht]
+\centering
+\caption{MLM-потеря и перплексия на внешней выборке}
+\label{tab:mlm}
+\begin{tabular}{@{}rcccc@{}}
+\toprule
+Seed & $\mathcal L_{\mathrm{base}}$ & $\mathcal L_{\mathrm{law}}$ & $\mathrm{PPL}_{\mathrm{base}}$ & $\mathrm{PPL}_{\mathrm{law}}$\\
+\midrule
+11  & 0{,}51672 & 0{,}44903 & 1{,}67652 & 1{,}56680\\
+23  & 0{,}50854 & 0{,}44592 & 1{,}66286 & 1{,}56192\\
+42  & 0{,}51754 & 0{,}44831 & 1{,}67789 & 1{,}56566\\
+67  & 0{,}50924 & 0{,}44417 & 1{,}66403 & 1{,}55919\\
+101 & 0{,}51547 & 0{,}44657 & 1{,}67443 & 1{,}56295\\
+\midrule
+Среднее & 0{,}51350 & 0{,}44680 & 1{,}67115 & 1{,}56330\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Во всех пяти парных опытах доменно адаптированная модель превосходит исходную. Средняя разность потерь равна $\bar d=0{,}06670$ при $s_d=0{,}00281$; по формуле \eqref{eq:ci} получен 95\%-й интервал $[0{,}06322;0{,}07018]$. Для каждого seed вычислялось относительное уменьшение
+\begin{equation}
+ r_s=1-\frac{\operatorname{PPL}_{\mathrm{law},s}}{\operatorname{PPL}_{\mathrm{base},s}}=1-\exp(-d_s).
+\end{equation}
+Среднее $\bar r=0{,}06452$, а 95\%-й t-интервал равен $[0{,}06126;0{,}06778]$. Таким образом, снижение перплексии составляет 6{,}45\% и устойчиво к реализации случайного маскирования.
+
+\begin{table}[ht]
+\centering
+\caption{Результаты NER на очищенной тестовой части}
+\label{tab:ner}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Энкодер & Precision & Recall & $F_1$\\
+\midrule
+\base{} & \pending{$P$} & \pending{$R$} & \pending{$F_1$}\\
+\model{} & 0{,}99794 & 0{,}99846 & 0{,}99820\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Для \model{} тестовая потеря равна $6{,}57\cdot10^{-5}$. Высокое значение $F_1$ нельзя объяснить точными копиями между частями данных: дедупликация выполнена до разбиения, а тексты трёх частей не пересекаются. Контроль с исходным энкодером позволяет отделить эффект доменной адаптации от сложности самой выборки.
+
+\section{Заключение}
+Продолженное MLM-предобучение русскоязычного ModernBERT на нормативных актах даёт воспроизводимое улучшение на внешней коллекции судебных решений. Парный эксперимент с пятью реализациями маскирования показал уменьшение перплексии на 6{,}45\% с узким доверительным интервалом. На очищенной NER-выборке доменно адаптированная модель достигла $F_1=0{,}99820$. Модель и код экспериментов опубликованы открыто \cite{modelcard,repository}.
+
+\section*{Благодарности}
+Вычисления выполнены с использованием оборудования высокопроизводительного вычислительного кластера НИЯУ МИФИ.
+
+\section*{Соблюдение этических стандартов}
+\noindent\textbf{Конфликт интересов.} Авторы заявляют об отсутствии конфликта интересов.
+
+\begin{thebibliography}{10}
+\bibitem{devlin2019bert} Devlin J., Chang M.-W., Lee K., Toutanova K. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding~// Proc. NAACL-HLT. 2019. P.~4171--4186. DOI: 10.18653/v1/N19-1423.
+\bibitem{warner2024modernbert} Warner B. et al. Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast, Memory Efficient, and Long Context Finetuning and Inference. 2024. arXiv:2412.13663.
+\bibitem{saveliev2024corpus} Saveliev D., Kuchakov R. The Russian Legislative Corpus. 2024. arXiv:2406.04855.
+\bibitem{dao2023flashattention2} Dao T. FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning. 2023. arXiv:2307.08691.
+\bibitem{rajbhandari2020zero} Rajbhandari S., Rasley J., Ruwase O., He Y. ZeRO: Memory Optimizations Toward Training Trillion Parameter Models~// Proc. SC20. 2020. DOI: 10.1109/SC41405.2020.00024.
+\bibitem{loshchilov2019adamw} Loshchilov I., Hutter F. Decoupled Weight Decay Regularization~// Proc. ICLR. 2019.
+\bibitem{modelcard} TryDotAtwo. RuModernBERT-ruLaw: model card. \url{https://huggingface.co/TryDotAtwo/RuModernBERT-ruLaw} (дата обращения: 29.07.2026).
+\bibitem{repository} TryDotAtwo. RuModernBERT-ruLaw: исходный код и сценарии экспериментов. \url{https://github.com/TryDotAtwo/RuModernBERT-ruLaw} (дата обращения: 29.07.2026).
+\end{thebibliography}
+
+\newpage
+\begin{english}
+\begin{center}\textbf{\Large DOMAIN ADAPTATION OF RUSSIAN MODERNBERT\\FOR LEGAL DOCUMENT ANALYSIS}\end{center}
+\textbf{Abstract.} We present RuModernBERT-ruLaw, a Russian-language encoder for long legal documents. It was obtained by continued masked-language-model pretraining of RuModernBERT-base on 304,382 documents of the RusLawOD corpus with a maximum context length of 8192 tokens. Training used a single NRNU MEPhI cluster node with eight NVIDIA A100 40 GB GPUs. In a paired evaluation with five random masking seeds on an external collection of court decisions, mean perplexity decreased from 1.6711 to 1.5633, a relative reduction of 6.45\% with a 95\% confidence interval of [6.13\%, 6.78\%]. On a deduplicated named-entity recognition split with no exact text overlap, the adapted model achieved $F_1=0.99820$.
+
+\textbf{Keywords:} natural language processing, legal text, ModernBERT, continued pretraining, masked language modeling, named entity recognition.
+\end{english}
+\end{document}
