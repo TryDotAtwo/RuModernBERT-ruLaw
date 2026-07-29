@@ -13,6 +13,10 @@ conda activate /mnt/pool/3/vokirova/venvs/rumodernbert-pip
 cd /mnt/pool/6/vokirova/rumodernbert-legal-mlm
 
 export TOKENIZERS_PARALLELISM=false
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
 export XDG_CACHE_HOME=/mnt/pool/6/vokirova/rumodernbert-legal-mlm/.cache
 export HF_HOME="$XDG_CACHE_HOME/huggingface"
 export HF_HUB_OFFLINE=1
