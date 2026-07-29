@@ -5,19 +5,19 @@
 \setdefaultlanguage{russian}
 \setotherlanguage{english}
 \setmainfont{Times New Roman}
+\setmonofont{Consolas}
 \usepackage{amsmath,amssymb,booktabs,array}
 \usepackage[margin=2cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \newcommand{\model}{RuModernBERT-ruLaw}
 \newcommand{\base}{RuModernBERT-base}
-\newcommand{\pending}[1]{\textbf{[после контрольного эксперимента: #1]}}
 \title{\textbf{Доменная адаптация русскоязычного ModernBERT\\для анализа нормативно-правовых текстов}}
 \author{}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-Предложена модель \model{} для обработки длинных русскоязычных нормативно-правовых документов. Модель получена продолженным предобучением энкодера \base{} на 304\,382 документах корпуса RusLawOD, содержащих 194\,425\,905 токенов. Максимальная длина контекста равна 8192 токенам. Обучение выполнено на одном узле кластера НИЯУ МИФИ с восемью ускорителями NVIDIA A100 40~ГБ. На внешней коллекции судебных решений проведено парное сравнение при пяти реализациях случайного маскирования. Средняя перплексия уменьшилась с 1{,}6711 до 1{,}5633, то есть на 6{,}45\%; 95\%-й доверительный интервал для относительного уменьшения равен [6{,}13; 6{,}78]\%. Дополнительно исследовано распознавание именованных сущностей на дедуплицированном разбиении без пересечения текстов. Для доменно адаптированной модели получено $F_1=0{,}99820$.
+Предложена модель \model{} для обработки длинных русскоязычных нормативно-правовых документов. Модель получена продолженным предобучением энкодера \base{} на 304\,382 документах корпуса RusLawOD, содержащих 194\,425\,905 токенов. Максимальная длина контекста равна 8192 токенам. Обучение выполнено на одном узле кластера НИЯУ МИФИ с восемью ускорителями NVIDIA A100 40~ГБ. На внешней коллекции судебных решений проведено парное сравнение при пяти реализациях случайного маскирования. Средняя перплексия уменьшилась с 1{,}6711 до 1{,}5633, то есть на 6{,}45\%; 95\%-й доверительный интервал для относительного уменьшения равен [6{,}13; 6{,}78]\%. Дополнительно исследовано распознавание именованных сущностей на дедуплицированном разбиении без пересечения текстов. Исходная и адаптированная модели достигли близких значений $F_1$: 0{,}99852 и 0{,}99820 соответственно; дополнительное MLM-предобучение не улучшило NER.
 \end{abstract}
 \noindent\textbf{Ключевые слова:} обработка естественного языка, юридические тексты, ModernBERT, продолженное предобучение, masked language modeling, распознавание именованных сущностей.
 
@@ -105,16 +105,16 @@ Seed & $\mathcal L_{\mathrm{base}}$ & $\mathcal L_{\mathrm{law}}$ & $\mathrm{PPL
 \toprule
 Энкодер & Precision & Recall & $F_1$\\
 \midrule
-\base{} & \pending{$P$} & \pending{$R$} & \pending{$F_1$}\\
+\base{} & 0{,}99841 & 0{,}99863 & 0{,}99852\\
 \model{} & 0{,}99794 & 0{,}99846 & 0{,}99820\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Для \model{} тестовая потеря равна $6{,}57\cdot10^{-5}$. Высокое значение $F_1$ нельзя объяснить точными копиями между частями данных: дедупликация выполнена до разбиения, а тексты трёх частей не пересекаются. Контроль с исходным энкодером позволяет отделить эффект доменной адаптации от сложности самой выборки.
+Тестовые потери исходной и адаптированной моделей практически совпали: $6{,}58\cdot10^{-5}$ и $6{,}57\cdot10^{-5}$. При этом исходная модель получила $F_1=0{,}99852$, а адаптированная --- $F_1=0{,}99820$; разность $-0{,}00032$ не свидетельствует об улучшении NER. Высокие значения нельзя объяснить точными копиями между частями данных: дедупликация выполнена до разбиения, а тексты трёх частей не пересекаются. Следовательно, доказанный эффект доменной адаптации относится к MLM на юридическом тексте, но не переносится автоматически на эту задачу распознавания сущностей.
 
 \section{Заключение}
-Продолженное MLM-предобучение русскоязычного ModernBERT на нормативных актах даёт воспроизводимое улучшение на внешней коллекции судебных решений. Парный эксперимент с пятью реализациями маскирования показал уменьшение перплексии на 6{,}45\% с узким доверительным интервалом. На очищенной NER-выборке доменно адаптированная модель достигла $F_1=0{,}99820$. Модель и код экспериментов опубликованы открыто \cite{modelcard,repository}.
+Продолженное MLM-предобучение русскоязычного ModernBERT на нормативных актах даёт воспроизводимое улучшение на внешней коллекции судебных решений. Парный эксперимент с пятью реализациями маскирования показал уменьшение перплексии на 6{,}45\% с узким доверительным интервалом. На очищенной NER-выборке обе модели достигли $F_1>0{,}998$, однако адаптация не дала улучшения относительно исходного энкодера. Тем самым результат подтверждает доменный выигрыш в языковом моделировании, но показывает необходимость отдельной проверки переноса для каждой прикладной задачи. Модель и код экспериментов опубликованы открыто \cite{modelcard,repository}.
 
 \section*{Благодарности}
 Вычисления выполнены с использованием оборудования высокопроизводительного вычислительного кластера НИЯУ МИФИ.
@@ -136,7 +136,7 @@ Seed & $\mathcal L_{\mathrm{base}}$ & $\mathcal L_{\mathrm{law}}$ & $\mathrm{PPL
 \newpage
 \begin{english}
 \begin{center}\textbf{\Large DOMAIN ADAPTATION OF RUSSIAN MODERNBERT\\FOR LEGAL DOCUMENT ANALYSIS}\end{center}
-\textbf{Abstract.} We present RuModernBERT-ruLaw, a Russian-language encoder for long legal documents. It was obtained by continued masked-language-model pretraining of RuModernBERT-base on 304,382 documents of the RusLawOD corpus with a maximum context length of 8192 tokens. Training used a single NRNU MEPhI cluster node with eight NVIDIA A100 40 GB GPUs. In a paired evaluation with five random masking seeds on an external collection of court decisions, mean perplexity decreased from 1.6711 to 1.5633, a relative reduction of 6.45\% with a 95\% confidence interval of [6.13\%, 6.78\%]. On a deduplicated named-entity recognition split with no exact text overlap, the adapted model achieved $F_1=0.99820$.
+\textbf{Abstract.} We present RuModernBERT-ruLaw, a Russian-language encoder for long legal documents. It was obtained by continued masked-language-model pretraining of RuModernBERT-base on 304,382 documents of the RusLawOD corpus with a maximum context length of 8192 tokens. Training used a single NRNU MEPhI cluster node with eight NVIDIA A100 40 GB GPUs. In a paired evaluation with five random masking seeds on an external collection of court decisions, mean perplexity decreased from 1.6711 to 1.5633, a relative reduction of 6.45\% with a 95\% confidence interval of [6.13\%, 6.78\%]. On a deduplicated named-entity recognition split with no exact text overlap, the base and adapted models achieved $F_1=0.99852$ and $F_1=0.99820$, respectively; continued pretraining did not improve NER.
 
 \textbf{Keywords:} natural language processing, legal text, ModernBERT, continued pretraining, masked language modeling, named entity recognition.
 \end{english}
