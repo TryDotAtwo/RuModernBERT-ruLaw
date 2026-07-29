@@ -14,4 +14,5 @@ bash scripts/train_ner_8xa100.sh \
   --train-file data/ner_hf_deduplicated/train.parquet \
   --validation-file data/ner_hf_deduplicated/validation.parquet \
   --test-file data/ner_hf_deduplicated/test.parquet \
-  --output-dir outputs/RuModernBERT-legal-ner-deduplicated
+  --output-dir outputs/RuModernBERT-legal-ner-deduplicated \
+  --preprocessing-num-workers 1
