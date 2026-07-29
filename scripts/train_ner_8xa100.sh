@@ -10,6 +10,8 @@
 
 set -euo pipefail
 
+extra_args=("$@")
+set --
 source /mnt/pool/3/vokirova/miniforge3/bin/activate
 conda activate /mnt/pool/3/vokirova/venvs/rumodernbert-pip
 cd /mnt/pool/6/vokirova/rumodernbert-legal-mlm
@@ -46,4 +48,4 @@ deepspeed --num_gpus=8 --module legal_modernbert_training.train_ner_head \
   --logging-steps 100 \
   --preprocessing-num-workers 32 \
   --dataloader-num-workers 0 \
-  "$@"
+  "${extra_args[@]}"
