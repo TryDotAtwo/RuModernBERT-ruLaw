@@ -11,6 +11,11 @@ source /mnt/pool/3/vokirova/miniforge3/bin/activate
 conda activate /mnt/pool/3/vokirova/venvs/rumodernbert-pip
 cd /mnt/pool/6/vokirova/rumodernbert-legal-mlm
 
+export HF_HOME=/mnt/pool/6/vokirova/.cache/huggingface
+export HF_DATASETS_CACHE="$HF_HOME/datasets"
+export TRANSFORMERS_CACHE="$HF_HOME/transformers"
+mkdir -p "$HF_DATASETS_CACHE" "$TRANSFORMERS_CACHE"
+
 PYTHONPATH=src python -m legal_modernbert_training.prepare_deduplicated_ner \
   --train-file data/ner_hf/data/train.parquet \
   --validation-file data/ner_hf/data/validation.parquet \
