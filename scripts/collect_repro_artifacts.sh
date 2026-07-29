@@ -14,7 +14,11 @@ ART="$ROOT/artifacts/reproducibility"
 MAX_COPY_BYTES=$((25 * 1024 * 1024))
 
 cd "$ROOT"
-source "$ENV_DIR/bin/activate"
+if [[ -f "$ENV_DIR/bin/activate" ]]; then
+  source "$ENV_DIR/bin/activate"
+else
+  echo "Collector environment not mounted; using system Python" >&2
+fi
 
 rm -rf "$ART"
 mkdir -p "$ART/environment" "$ART/logs" "$ART/metrics" "$ART/manifests"
